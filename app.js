@@ -1,6 +1,6 @@
 const notesContainer = document.querySelector('.notes-container')
 const createBtn = document.querySelector('.btn');
-const notes = document.querySelectorAll('.input-box');
+let notes = document.querySelectorAll('.input-box');
 
 const showNotes = () => {
     notesContainer.innerHTML = localStorage.getItem('notes')
@@ -34,5 +34,12 @@ notesContainer.addEventListener('click', (e) => {
                 updateSrorage()
             }
         })
+    }
+})
+
+document.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter') {
+        document.execCommand('insertLineBreak');
+        e.preventDefault()
     }
 })
